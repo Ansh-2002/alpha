@@ -1,0 +1,135 @@
+{
+  "info": {
+    "name": "Alpha Platform API",
+    "description": "Deep Research Agent Platform API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "People",
+      "item": [
+        {
+          "name": "Get All People",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/people",
+              "host": ["{{base_url}}"],
+              "path": ["api", "people"]
+            }
+          }
+        },
+        {
+          "name": "Get Person by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/people/{{person_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "people", "{{person_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Create Person",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"company_id\": \"{{company_id}}\",\n  \"full_name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"title\": \"Software Engineer\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/people",
+              "host": ["{{base_url}}"],
+              "path": ["api", "people"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Companies",
+      "item": [
+        {
+          "name": "Get All Companies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/companies",
+              "host": ["{{base_url}}"],
+              "path": ["api", "companies"]
+            }
+          }
+        },
+        {
+          "name": "Get Company Snippets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/companies/{{company_id}}/snippets",
+              "host": ["{{base_url}}"],
+              "path": ["api", "companies", "{{company_id}}", "snippets"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Enrichment",
+      "item": [
+        {
+          "name": "Enrich Person",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/enrich/{{person_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "enrich", "{{person_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/job/{{job_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "job", "{{job_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "person_id",
+      "value": ""
+    },
+    {
+      "key": "company_id", 
+      "value": ""
+    },
+    {
+      "key": "job_id",
+      "value": ""
+    }
+  ]
+}
